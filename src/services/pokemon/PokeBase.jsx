@@ -21,10 +21,10 @@ const PokeBase = () => {
 	return (
 		<div className="row">
 			<div className="column-6">
-				<PokemonList data={data} />
+				<PokemonList data={data} setDetailsId={setDetailsId} />
 				<Pagination />
 			</div>
-			<div className="column-6">
+			<div className="column-6 content-view">
 				<SideView moreDetails={moreDetails} />
 			</div>
 		</div>

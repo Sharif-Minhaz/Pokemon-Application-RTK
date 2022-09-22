@@ -16,6 +16,7 @@ nav {
 	background-color: rgb(180, 227, 91);
 	position: sticky;
 	position: -webkit-sticky;
+	top: 0;
 	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 nav img {
@@ -27,14 +28,56 @@ nav img {
 	padding: 16px;
 }
 .row .column-6 {
-	flex-basis: calc(100% / 2);
+	flex-basis: 50%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+.row .column-6 {
+	flex-basis: 50%;
+}
+.row .column-6.content-view .more-details {
+	position: fixed;
+	min-height: calc(100vh - 96px);
 }
 
 .pokemon-list {
 	display: grid;
 	grid-template-columns: repeat(2, auto);
+	gap: 16px;
+}
+.single-pokemon {
+	cursor: pointer;
+	background-color: #83f19b;
+	width: 250px;
+	border-radius: 5px;
+	text-align: center;
+	padding: 10px;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+.single-pokemon img {
+	width: 45px;
+}
+.single-pokemon p {
+	text-transform: capitalize;
 }
 
-.more-details .name {
+.more-details {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.more-details img {
+	width: 250px;
+	max-height: 400px;
+}
+.more-details .name span {
 	text-transform: capitalize;
+}
+.more-details p {
+	margin: 4px 0px;
+}
+.more-details p:nth-child(2) {
+	margin-top: 20px;
 }
