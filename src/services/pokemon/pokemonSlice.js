@@ -12,7 +12,13 @@ export const pokemonApi = createApi({
 				method: "GET",
 			}),
 		}),
+		getMoreDetails: builder.query({
+			query: (url) => ({
+				url: url,
+				method: "GET",
+			}),
+		}),
 	}),
 });
 
-export const { useGetAllPokemonQuery } = pokemonApi;
+export const { useGetAllPokemonQuery, useGetMoreDetailsQuery } = pokemonApi;
