@@ -1,11 +1,18 @@
 import { useGetMoreDetailsQuery } from "../services/pokemon/pokemonSlice";
 
-const SinglePokemon = ({ pokemon, id, setDetailsId }) => {
-	const moreInfo = useGetMoreDetailsQuery(id.toString());
+const SinglePokemon = ({ pokemon, setDetailsId }) => {
+	const moreInfo = useGetMoreDetailsQuery(pokemon.name);
 
 	return (
-		<div onClick={() => setDetailsId(id.toString())} className="single-pokemon">
-			<img src={moreInfo.data?.sprites?.front_default} alt="indicator-img" />
+		<div
+			onClick={() => {
+				setDetailsId(pokemon.name);
+				window.innerWidth <= 500 &&
+					window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+			}}
+			className="single-pokemon"
+		>
+			<img src={moreInfo.data?.sprites?.front_default} alt="indicator-img" loading="lazy" />
 			<p>{pokemon.name}</p>
 		</div>
 	);

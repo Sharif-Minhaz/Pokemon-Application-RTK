@@ -6,7 +6,11 @@ const store = configureStore({
 	reducer: {
 		[pokemonApi.reducerPath]: pokemonApi.reducer,
 	},
-	middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(pokemonApi.middleware),
+	middleware: (getDefaultMiddleware) =>
+		getDefaultMiddleware({
+			immutableCheck: { warnAfter: 150 },
+			serializableCheck: { warnAfter: 150 },
+		}).concat(pokemonApi.middleware),
 });
 
 setupListeners(store.dispatch);
