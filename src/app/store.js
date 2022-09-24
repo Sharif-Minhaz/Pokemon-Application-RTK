@@ -8,8 +8,7 @@ const store = configureStore({
 	},
 	middleware: (getDefaultMiddleware) =>
 		getDefaultMiddleware({
-			immutableCheck: { warnAfter: 150 },
-			serializableCheck: { warnAfter: 150 },
+			serializableCheck: false,
 		}).concat(pokemonApi.middleware),
 });
 

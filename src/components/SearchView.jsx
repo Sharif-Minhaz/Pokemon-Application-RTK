@@ -2,23 +2,23 @@ import { useLocation } from "react-router-dom";
 
 const SearchView = () => {
 	const { state } = useLocation();
-	console.log(state);
-
+	
 	return (
 		<section className="search-section">
 			<p className="search-result-text">Search result of "{state.keyword}"</p>
-			{state.data?.count > 1 ? (
-				<p className="no-data">No data found. Type word correctly!</p>
+			{state.data?.length === 0 ? (
+				<p className="no-data">No data found. Type the name correctly!</p>
 			) : (
 				<div className="search-view">
 					<div className="search-img">
 						<img
 							src={
 								state?.data?.sprites?.other?.dream_world?.front_default ||
-								state?.data?.sprites?.other?.["official-artwork"]?.front_default
+								state?.data?.sprites?.other?.["official-artwork"]?.front_default ||
+								state?.data?.sprites?.back_default
 							}
 							loading="lazy"
-							alt={"broken_img"}
+							alt="broken_img"
 						/>
 					</div>
 					<div className="result-info">
@@ -60,7 +60,7 @@ const SearchView = () => {
 										{state.data?.moves
 											?.map((singleMove) => singleMove.move?.name)
 											.slice(0, 5)
-											.join(", ")}
+											.join(", ") || "Unknown"}
 									</td>
 								</tr>
 								<tr>

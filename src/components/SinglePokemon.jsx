@@ -12,7 +12,15 @@ const SinglePokemon = ({ pokemon, setDetailsId }) => {
 			}}
 			className="single-pokemon"
 		>
-			<img src={moreInfo.data?.sprites?.front_default} alt="indicator-img" loading="lazy" />
+			<img
+				src={
+					moreInfo.data?.sprites?.front_default ||
+					moreInfo.data?.sprites?.other?.["official-artwork"]?.front_default ||
+					moreInfo?.data?.sprites?.front_default
+				}
+				alt="indicator-img"
+				loading="lazy"
+			/>
 			<p>{pokemon.name}</p>
 		</div>
 	);

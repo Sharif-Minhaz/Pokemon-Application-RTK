@@ -4,8 +4,11 @@
 	box-sizing: border-box;
 	font-family: Arial, Helvetica, sans-serif;
 }
+a {
+	text-decoration: none;
+}
 body {
-	background-color: #f9f9c7;
+	background-color: #f5f0bb;
 }
 nav {
 	display: flex;
@@ -13,7 +16,7 @@ nav {
 	justify-content: space-between;
 	gap: 15px;
 	padding: 16px;
-	background-color: rgb(180, 227, 91);
+	background-color: #73a9ad;
 	position: sticky;
 	position: -webkit-sticky;
 	top: 0;
@@ -30,6 +33,7 @@ nav img {
 .search-box #search {
 	padding: 10px 14px;
 	font-size: 15px;
+	width: 100%;
 }
 .search-box input:nth-child(2) {
 	padding: 12px;
@@ -50,9 +54,12 @@ nav img {
 .row .column-6 {
 	flex-basis: 50%;
 }
-/* .row .column-6.content-view {
-	background-image: url("https://i.pinimg.com/736x/47/d5/e2/47d5e278e0d8329b2c783fabbc4fb74d.jpg");
-} */
+.row .column-6.button-view {
+	padding: 17px;
+	background-color: #faffd830;
+	border-radius: 11px;
+	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
 .row .column-6.content-view .more-details {
 	position: fixed;
 	min-height: calc(100vh - 96px);
@@ -65,9 +72,9 @@ nav img {
 }
 .single-pokemon {
 	cursor: pointer;
-	background-color: #83f19b;
+	background-color: #f6ffea;
 	width: 250px;
-	border-radius: 5px;
+	border-radius: 11px;
 	text-align: center;
 	padding: 10px;
 	box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
@@ -85,9 +92,14 @@ nav img {
 	align-items: center;
 	justify-content: center;
 }
+.more-details .details-box {
+	padding: 0px 17px 0px 17px;
+	border: 1px dashed black;
+	margin-top: 30px;
+}
 .more-details img {
 	width: 250px;
-	max-height: 300px;
+	max-height: 210px;
 	filter: drop-shadow(5px 5px 5px hsl(0deg 0% 0% / 0.5));
 }
 .more-details .name span,
@@ -96,10 +108,7 @@ nav img {
 }
 .more-details div p {
 	margin: 6px 0px;
-	text-align: center;
-}
-.more-details div p:nth-child(1) {
-	margin-top: 30px;
+	text-align: left;
 }
 
 .pagination {
@@ -170,7 +179,53 @@ nav img {
 	font-size: 18px;
 }
 
-@media (max-width: 950px) {
+.error-page {
+	height: calc(100vh - 157px);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	gap: 20px;
+}
+.error-page button {
+	cursor: pointer;
+	padding: 7px 14px;
+	font-size: 16px;
+}
+.error-page h1 {
+	text-align: center;
+}
+
+footer {
+	color: #000000b5;
+	position: relative;
+	width: 100%;
+	display: flex;
+	background-color: #faffd830;
+	border: 1px solid #dbdbbd;
+	place-content: center;
+	font-size: 14px;
+	padding: 14px 10px;
+	text-align: center;
+	margin-top: 44px;
+}
+footer .footer-section {
+	display: flex;
+	row-gap: 10px;
+	column-gap: 6px;
+	flex-wrap: wrap;
+	place-content: center;
+}
+footer .footer-section a {
+	color: #252525;
+}
+footer .footer-section a span {
+	border: 1px solid #c9c9c9;
+	padding: 4px 11px;
+	border-radius: 50px;
+}
+
+@media (max-width: 969px) {
 	.row {
 		flex-direction: column-reverse;
 	}
@@ -186,11 +241,12 @@ nav img {
 		height: auto;
 		align-items: center;
 	}
-	.more-details div {
+	.more-details .details-box {
+		border: none;
 		border-left: 1px solid #e3e3e3;
 		padding-left: 12px;
 	}
-	.more-details div p {
+	.more-details .details-box p {
 		text-align: left;
 	}
 	.search-view {
@@ -205,15 +261,20 @@ nav img {
 	.single-pokemon {
 		width: 100%;
 	}
-	.more-details div p:first-child {
+
+	.more-details .details-box {
+		padding: 17px;
+		border: 1px dashed black;
+	}
+	.more-details .details-box p:first-child {
 		margin-top: 0px;
 	}
-	.more-details div p:last-child {
+	.more-details .details-box p:last-child {
 		margin-bottom: 0px;
 	}
 }
 
-@media (max-width: 557px){
+@media (max-width: 557px) {
 	.search-view {
 		margin: 17px;
 	}
@@ -222,6 +283,7 @@ nav img {
 @media (max-width: 500px) {
 	.more-details {
 		flex-direction: column;
+		gap: 0;
 	}
 	.more-details div {
 		border-left: none;
@@ -230,5 +292,25 @@ nav img {
 	.more-details div p {
 		text-align: center;
 	}
+	.search-view .search-img img {
+		width: 100%;
+		height: auto;
+	}
 }
 
+@media (max-width: 440px) {
+	footer .footer-section {
+		flex-direction: column;
+	}
+	footer div > span:nth-child(3) {
+		display: none;
+	}
+	.search-box #search {
+		padding: 10px 9px;
+		font-size: 12px;
+	}
+	.search-box input:nth-child(2) {
+		padding: 2px;
+		font-size: 12px;
+	}
+}

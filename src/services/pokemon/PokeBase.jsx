@@ -15,7 +15,7 @@ const PokeBase = () => {
 	const [data, setData] = useState([]);
 	const [offset, setOffset] = useState(0);
 	const [isLoading, setIsLoading] = useState(true);
-	const [detailsId, setDetailsId] = useState("weedle");
+	const [detailsId, setDetailsId] = useState("bulbasaur");
 
 	const moreDetails = useGetMoreDetailsQuery(detailsId);
 	const nextPrevData = useGetRangeDataQuery(offset);
@@ -46,12 +46,13 @@ const PokeBase = () => {
 
 	return (
 		<div className="row">
-			<div className="column-6">
+			<div className="column-6 button-view">
 				{isLoading ? <Loading /> : <PokemonList data={data} setDetailsId={setDetailsId} />}
 				<Pagination
 					handleNext={handleNext}
 					handlePrevious={handlePrevious}
 					offset={offset}
+					count={responseInfo.data}
 				/>
 			</div>
 			<div className="column-6 content-view">

@@ -1,18 +1,30 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useGetSinglePokemonQuery } from "../services/pokemon/pokemonSlice";
 
 const Navbar = () => {
 	const navigate = useNavigate();
 	const [name, setName] = useState("");
-	const singlePokemonInfo = useGetSinglePokemonQuery(name.toLowerCase());
+	const [searchText, setSearchText] = useState("");
+	const singlePokemonInfo = useGetSinglePokemonQuery(searchText.toLowerCase());
+
+	useEffect(() => {
+		singlePokemonInfo.isSuccess &&
+			searchText.length !== 0 &&
+			navigate(`/single/${searchText.toLowerCase()}`, {
+				state: { data: singlePokemonInfo.data, keyword: searchText },
+			});
+
+		singlePokemonInfo.isError &&
+			navigate(`/single/${searchText.toLowerCase()}`, {
+				state: { data: [], keyword: searchText },
+			});
+		// eslint-disable-next-line
+	}, [searchText, singlePokemonInfo]);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		singlePokemonInfo.isSuccess &&
-			navigate(`/single/${name.toLowerCase()}`, {
-				state: { data: singlePokemonInfo.data, keyword: name },
-			});
+		setSearchText(name);
 	};
 
 	return (
