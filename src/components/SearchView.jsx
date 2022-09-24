@@ -1,10 +1,10 @@
-import defaultImg from "../assets/images/default.png"
+import defaultImg from "../assets/images/default.png";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const SearchView = () => {
 	const { state } = useLocation();
 	const navigate = useNavigate();
-	
+
 	return (
 		<section className="search-section">
 			<p className="search-result-text">Search result of "{state.keyword}"</p>
@@ -18,9 +18,9 @@ const SearchView = () => {
 					<div className="search-img">
 						<img
 							src={
-								state?.data?.sprites?.other?.dream_world?.front_default ||
-								state?.data?.sprites?.other?.["official-artwork"]?.front_default ||
-								state?.data?.sprites?.back_default ||
+								state.data?.sprites?.other?.dream_world?.front_default ||
+								state.data?.sprites?.other?.["official-artwork"]?.front_default ||
+								state.data?.sprites?.back_default ||
 								defaultImg
 							}
 							loading="lazy"
@@ -47,9 +47,16 @@ const SearchView = () => {
 								<tr>
 									<th>Types</th>
 									<td>
-										{state.data?.types
-											?.map((singleType) => singleType.type?.name)
-											.join(", ")}
+										{state.data?.types?.map((singleType, i) => (
+											<span
+												key={i}
+												className={
+													"poke-types " + singleType.type?.name
+												}
+											>
+												{singleType.type?.name}
+											</span>
+										))}
 									</td>
 								</tr>
 								<tr>

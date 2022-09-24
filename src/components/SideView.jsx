@@ -22,7 +22,11 @@ const SideView = ({ moreDetails }) => {
 				</p>
 				<p>
 					<strong>Types:</strong>{" "}
-					{moreDetails.data?.types?.map((singleType) => singleType.type?.name).join(", ")}
+					{moreDetails.data?.types?.map((singleType, i) => (
+						<span key={i} className={"poke-types " + singleType.type?.name}>
+							{singleType.type?.name}
+						</span>
+					))}
 				</p>
 				<p>
 					<strong>Abilities:</strong>{" "}

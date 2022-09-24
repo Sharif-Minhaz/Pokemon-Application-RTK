@@ -203,6 +203,75 @@ nav img {
 	margin-bottom: 30px;
 }
 
+.poke-types {
+	background-color: #73a9ad;
+	padding: 3px 7px;
+	display: inline-block;
+	margin-right: 5px;
+	border-radius: 5px;
+	font-size: 13px;
+	cursor: default;
+	color: white;
+}
+.bug {
+	background-color: #a8c59f;
+}
+.water {
+	background-color: rgb(17, 213, 213);
+}
+.fire {
+	background-color: #e25822;
+}
+.electric {
+	background-color: #F8D030;
+	color: black;
+}
+.dragon {
+	background-color: #8d5153;
+}
+.poison {
+	background-color: #00FF00;
+}
+.grass {
+	background-color: #567d46 ;
+}
+.normal {
+	background-color: #c9c9c9;
+	color: black;
+}
+.flying {
+	background-color: #a890f0;
+}
+.rock {
+	background-color: #3a3232;
+}
+.ground {
+	background-color: gray;
+}
+.psychic {
+	background-color: #f85888;
+}
+.dark {
+	background-color: #705848;
+}
+.steel {
+	background-color: #71797E;
+}
+.fighting {
+	background-color: #c03028;
+}
+.ice {
+	background-color: rgb(226, 255, 255);
+	color: black;
+	border: 1px solid rgba(0, 0, 0, 0.343);
+}
+.ghost {
+	background-color: #705898;
+}
+.fairy {
+	background-color: gold;
+}
+
 footer {
 	color: #000000b5;
 	position: relative;
