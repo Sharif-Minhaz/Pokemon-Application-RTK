@@ -201,7 +201,7 @@ footer {
 	position: relative;
 	width: 100%;
 	display: flex;
-	background-color: #faffd830;
+	background-color: #faffd8d6;
 	border: 1px solid #dbdbbd;
 	place-content: center;
 	font-size: 14px;
@@ -217,7 +217,11 @@ footer .footer-section {
 	place-content: center;
 }
 footer .footer-section a {
-	color: #252525;
+	color: #838383;
+	text-decoration: underline;
+}
+footer .footer-section a:last-child {
+	text-decoration: none;
 }
 footer .footer-section a span {
 	border: 1px solid #c9c9c9;
