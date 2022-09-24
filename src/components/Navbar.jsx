@@ -25,6 +25,11 @@ const Navbar = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		setSearchText(name);
+		singlePokemonInfo.isSuccess &&
+			searchText.length !== 0 &&
+			navigate(`/single/${searchText.toLowerCase()}`, {
+				state: { data: singlePokemonInfo.data, keyword: searchText },
+			});
 	};
 
 	return (
