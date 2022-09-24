@@ -15,7 +15,7 @@ const PokeBase = () => {
 	const [data, setData] = useState([]);
 	const [offset, setOffset] = useState(0);
 	const [isLoading, setIsLoading] = useState(true);
-	const [detailsId, setDetailsId] = useState("bulbasaur");
+	const [detailsId, setDetailsId] = useState(Math.ceil(Math.random() * 19).toString());
 
 	const moreDetails = useGetMoreDetailsQuery(detailsId);
 	const nextPrevData = useGetRangeDataQuery(offset);
