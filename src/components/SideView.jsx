@@ -1,3 +1,5 @@
+import defaultImg from "../assets/images/default.png";
+
 const SideView = ({ moreDetails }) => {
 	return (
 		<div className="more-details">
@@ -5,7 +7,8 @@ const SideView = ({ moreDetails }) => {
 				src={
 					moreDetails.data?.sprites?.other?.dream_world?.front_default ||
 					moreDetails.data?.sprites?.other?.["official-artwork"]?.front_default ||
-					moreDetails?.data?.sprites?.front_default
+					moreDetails?.data?.sprites?.front_default ||
+					defaultImg
 				}
 				alt="pokemon_img"
 				loading="lazy"
