@@ -187,13 +187,20 @@ nav img {
 	flex-direction: column;
 	gap: 20px;
 }
-.error-page button {
+.error-page button, .not-found-case button {
 	cursor: pointer;
 	padding: 7px 14px;
 	font-size: 16px;
 }
 .error-page h1 {
 	text-align: center;
+}
+
+.not-found-case {
+	text-align: center;
+}
+.not-found-case p {
+	margin-bottom: 30px;
 }
 
 footer {

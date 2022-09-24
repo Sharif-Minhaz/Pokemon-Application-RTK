@@ -1,13 +1,18 @@
-import { useLocation } from "react-router-dom";
+import defaultImg from "../assets/images/default.png"
+import { useLocation, useNavigate } from "react-router-dom";
 
 const SearchView = () => {
 	const { state } = useLocation();
+	const navigate = useNavigate();
 	
 	return (
 		<section className="search-section">
 			<p className="search-result-text">Search result of "{state.keyword}"</p>
 			{state.data?.length === 0 ? (
-				<p className="no-data">No data found. Type the name correctly!</p>
+				<div className="not-found-case">
+					<p className="no-data">No data found. Type the name correctly!</p>
+					<button onClick={() => navigate("/")}>Go Back to Home</button>
+				</div>
 			) : (
 				<div className="search-view">
 					<div className="search-img">
@@ -15,7 +20,8 @@ const SearchView = () => {
 							src={
 								state?.data?.sprites?.other?.dream_world?.front_default ||
 								state?.data?.sprites?.other?.["official-artwork"]?.front_default ||
-								state?.data?.sprites?.back_default
+								state?.data?.sprites?.back_default ||
+								defaultImg
 							}
 							loading="lazy"
 							alt="broken_img"
