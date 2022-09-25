@@ -42,7 +42,7 @@ const PokeBase = () => {
 		window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
 	};
 
-	if (responseInfo.isError) return <h2>An error occurred, {responseInfo.error.error}</h2>;
+	if (responseInfo.isError) return <h2 className="error-heading">An error occurred, {responseInfo.error.error}</h2>;
 
 	return (
 		<div className="row">

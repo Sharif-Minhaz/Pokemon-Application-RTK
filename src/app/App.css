@@ -67,7 +67,7 @@ nav img {
 
 .pokemon-list {
 	display: grid;
-	grid-template-columns: repeat(2, auto);
+	grid-template-columns: repeat(2, calc(50% - 8px));
 	gap: 16px;
 }
 .single-pokemon {
@@ -194,6 +194,10 @@ nav img {
 }
 .error-page h1 {
 	text-align: center;
+}
+.error-heading {
+	text-align: center;
+	margin-top: 50px;
 }
 
 .not-found-case {
